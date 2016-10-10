@@ -1,0 +1,16 @@
+$INPUT_COLOR: #3daf76;
+
+input {
+  width: 600px;
+  border: 1px solid $INPUT_COLOR;
+  color: $INPUT_COLOR;
+  border-radius: 5px;
+  height: 30px;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+
+#results {
+  margin-top: 30px;
+  font-size: 16px;
+}
