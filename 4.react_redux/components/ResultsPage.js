@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import franc from 'franc'
+import {typeText} from '../actions/actions'
 
 import ResultsArea from './ResultsArea'
 
@@ -9,17 +9,18 @@ const ResultsPage = React.createClass({
   },
 
   render() {
+    const dispatch = this.props.dispatch
     return (
       <div>
-        <input id="in" onChange={this.handleChange}/>
-        <ResultsArea francResults={this.state.francResults} />
+        <input id="in" onChange={e => {this.handleChange(e, dispatch)}}/>
+        <ResultsArea francResults={this.props.someSpecializedReducer} />
       </div>
     )
   },
 
-  handleChange(event) {
-    const results = franc.all(event.target.value)
-    this.setState({inputData: event.target.value, francResults: results})
+  handleChange(event, dispatch) {
+    this.setState({inputData: event.target.value})
+    dispatch(typeText(event.target.value))
   }
 })
 

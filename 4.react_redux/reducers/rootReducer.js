@@ -1,11 +1,12 @@
 import {combineReducers} from 'redux'
+import franc from 'franc'
 
-import {SOME_ACTION} from '../actions/actions'
+import {TYPE_TEXT} from '../actions/actions'
 
-function someSpecializedReducer(state = false, action) {
+function someSpecializedReducer(state = [], action) {
   switch (action.type) {
-    case SOME_ACTION:
-      return true
+    case TYPE_TEXT:
+      return franc.all(action.inputText)
     default:
       return state
   }
